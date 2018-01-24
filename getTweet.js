@@ -29,7 +29,10 @@ client.NetworkLayer.open((err, result) => {
       instanceName: "test",
       resourceName: "Tweets",
       messageName: "GetTweet",
-      // body: {},
+      body: {
+        searchTerm: "oscars",
+        limit: "20",
+      },
     };
 
     client.Transport.requestResponse(options, (err, result) => {
@@ -41,15 +44,7 @@ client.NetworkLayer.open((err, result) => {
       console.log("\n\nTweets");
 
       // some business logic for handling the return results
-      console.log(result.body);
-
-      // for (const day of result.body.days) {
-      //   for (const time of day.times) {
-      //     const minHeight = round(time.surf.minHeight, 4);
-      //     const maxHeight = round(time.surf.maxHeight, 4);
-      //     console.log(`${time.timestamp}: ${minHeight} ... ${maxHeight}`);
-      //   }
-      // }
+      console.log(result.body.tweets);
     });
   });
 });
