@@ -30,8 +30,8 @@ client.NetworkLayer.open((err, result) => {
       resourceName: "Tweets",
       messageName: "GetTweet",
       body: {
-        searchTerm: "oscars",
-        limit: "20",
+        searchTerm: process.argv[2],
+        limit: process.argv[3],
       },
     };
 
